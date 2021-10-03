@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-03 14:43:19
- * @LastEditTime: 2021-10-03 16:05:27
+ * @LastEditTime: 2021-10-04 00:16:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\App.vue
 -->
 <template>
   <div id="app">
-    <span>上传</span>
+  <div>s</div>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
