@@ -1,15 +1,15 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-11 23:12:12
- * @LastEditTime: 2021-10-13 17:28:40
+ * @LastEditTime: 2021-10-17 16:48:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\components\Swiper.vue
 -->
 <template>
 <div class="wrapper">
-  <swiper :options="swiperOptions">
-    <swiper-slide v-for="item of swiperList" :key="item.id">
+  <swiper :options="swiperOptions" v-if="list.length">
+    <swiper-slide v-for="item of list" :key="item.id">
       <img class="swiper-img" :src="item.imgUrl"/>
     </swiper-slide>
    
@@ -17,22 +17,24 @@
   </swiper>
 </div>
 </template>
+
 <script>
 export default {
   name: "HomeSwiper",
+  props:{
+    list:Array
+  },
   data () {
     return {
       swiperOptions: {
         pagination:'.swiper-pagination',
         loop:true
-      },
-      swiperList:[{
-        id:'0001',
-        imgUrl:'https://www.12306.cn/index/images/abanner01.jpg'
-      },{
-        id:'0002',
-        imgUrl:'https://www.12306.cn/index/images/abanner02.jpg'
-      }]
+      }
+    }
+  },
+  computed:{
+    showSwiper(){
+      return this.list.length
     }
   }
 }
