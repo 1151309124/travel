@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-05 23:20:38
- * @LastEditTime: 2021-10-17 16:32:48
+ * @LastEditTime: 2021-10-20 17:35:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\components\Header.vue
@@ -15,10 +15,12 @@
       <span class="iconfont">&#xe632;</span>
       输入城市/景点/游玩主题
     </div>
+    <router-link to="/city">
     <div class="header-right">
       {{this.city}}
       <span class="iconfont arrow-icon">&#xe64a;</span>
     </div>
+     </router-link>
   </div>
 </template>
 
@@ -34,26 +36,32 @@ export default {
 <style lang="stylus" scoped>
 .header 
   display:flex;
-  line-height:.86rem;
+  line-height:$headerHeight;
   background:#00bcd4;
   color:#fff
     
 .header-left 
     width:.64rem;
     float: left;
-
+  .back-icon
+   text-align: center
+   font-size:.4rem
 .header-input 
     flex: 1
     height:.64rem
     line-height:.64rem
     margin-top:.12rem
     margin-left:.2rem
+    padding-left: .2rem
     background:#fff
-    border-border-radius:.1rem
+    border-radius:.1rem
     color:#ccc
 .header-right 
   diwth: 1.24rem;
   float: right;
   text-align: center;
+  .arrow-icon
+   margin-left: -.04rem
+   font-size:.24rem
 
 </style>
