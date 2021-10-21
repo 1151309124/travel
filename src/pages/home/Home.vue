@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-15 18:12:04
- * @LastEditTime: 2021-10-17 17:04:33
+ * @LastEditTime: 2021-10-21 19:04:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\Home.vue
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json')
+      axios.get('/static/index.json')
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {

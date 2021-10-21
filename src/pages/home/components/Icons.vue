@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-13 18:07:43
- * @LastEditTime: 2021-10-20 13:33:08
+ * @LastEditTime: 2021-10-21 20:57:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\components\Icons.vue
@@ -52,8 +52,9 @@ computed:{
 
 </script>
 <style lang="stylus" scoped>
-    "@import '~styles/varibles.styl'"
-    "@import '~styles/mixins.styl'"
+    @import '~@/assets/styles/varibles.styl'
+    @import '~@/assets/styles/mixins.styl'
+    
     
    .icons >>> .swiper-container
     height:0

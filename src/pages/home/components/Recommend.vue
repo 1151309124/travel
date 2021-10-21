@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-15 18:28:06
- * @LastEditTime: 2021-10-17 17:01:20
+ * @LastEditTime: 2021-10-21 20:58:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\components\Recommend.vue
@@ -34,7 +34,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-    "@import '~styles/mixins.styl'"
+    @import '~@/assets/styles/mixins.styl'
     .title
      margin-top:.2rem
      line-height :.8rem

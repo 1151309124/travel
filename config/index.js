@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-17 16:20:46
- * @LastEditTime: 2021-10-17 17:18:13
+ * @LastEditTime: 2021-10-21 18:55:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\config\index.js
@@ -22,7 +22,7 @@ module.exports = {
       '/api': {
         target: 'http://localhost:8080',
         pathRewrite:{
-          '^/api':'/static.mock'
+          '^/api':'/static/mock'
         }
       }
     },

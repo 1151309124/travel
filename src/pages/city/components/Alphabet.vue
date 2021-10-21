@@ -1,31 +1,84 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-21 00:14:12
- * @LastEditTime: 2021-10-21 12:53:12
+ * @LastEditTime: 2021-10-21 20:55:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\city\components\Alphabet.vue
 -->
 <template>
     <ul class="list">
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
+        <li 
+        class="item" 
+        v-for="item of letters" 
+        :key="item"
+        :ref="item"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend=" handleTouchEnd"
+        @click="handleLetterClick"
+        >
+            {{item}}
+        </li>
     </ul>
 </template>
 
 <script>
 export default {
-    name:'CityAlphabet'
+    name:'CityAlphabet',
+    props:{
+        cities:Object
+    },
+    computed: {
+        letters() {
+        const letters =[]
+        for (let i in this.cities){
+            letters.push(i)
+        }
+        return letters
+        }
+    },
+    data (){
+        return {
+            touchStatus:false,
+            startY:0,
+            timer:null
+        }
+    },
+    updated () {
+        this.startY=this.$refs['A'][0].offsetTop
+    },
+    methods: {
+        
+        handleLetterClick(e) {
+            this.$emit('change',e.target.innerText)
+        },
+        handleTouchStart(){
+            this.touchStatus=true
+        },
+        handleTouchMove(e){
+            if (this.touchStatus) {
+                if (this.timer) {
+                    clearTimeout(this.timer)
+                }
+                this.timer=setTimeout(() => {
+                    const touchY=e.touches[0].clientY-79
+                    const index=Math.floor((touchY - this.tartY)/20)
+                    if (index >=0 && index <this.letters.length) {
+                     this.$emit('change',this.letters[index])
+                }
+                },16)
+            }
+        },
+        handleTouchEnd(){
+            this.touchStatus=false
+        }
+    }
 }
 </script>
 
 <style lang="stylus" scoped>
-    "@import '~styles/varibles.styl'"
+    @import '~@/assets/styles/varibles.styl'
     .list
      display: flex
      flex-direction: column
@@ -35,10 +88,12 @@ export default {
      right: 0
      bottom: 0
      width: .4rem
+     
 
      .item
       list-height: .4rem
       text-align: center
       color: $bgColor
+      
 
 </style>

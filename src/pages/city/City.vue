@@ -1,36 +1,64 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-20 13:14:53
- * @LastEditTime: 2021-10-21 12:47:45
+ * @LastEditTime: 2021-10-21 19:03:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\city\City.vue
 -->
 <template>
-<div>
+  <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list></city-list>
-    <city-alphabet></city-alphabet>
-</div>
+    <city-list :cities="cities" :hot="hotCities" :letter="letter"></city-list>
+    <city-alphabet
+      :cities="cities"
+      @change="handleLetterChange"
+    ></city-alphabet>
+  </div>
 </template>
 
 <script>
-import CityHeader from './components/Header'
-import CitySearch from './components/Search'
-import CityList from './components/List'
-import CityAlphabet from './components/Alphabet'
+import axios from "axios";
+import CityHeader from "./components/Header";
+import CitySearch from "./components/Search";
+import CityList from "./components/List";
+import CityAlphabet from "./components/Alphabet";
 export default {
-    name:'City',
-    components:{
-        CityHeader,
-        CitySearch,
-        CityList,
-        CityAlphabet
-    }
-}
+  name: "City",
+  components: {
+    CityHeader,
+    CitySearch,
+    CityList,
+    CityAlphabet,
+  },
+  data() {
+    return {
+      cities: {},
+      hotCities: [],
+      letter: "",
+    };
+  },
+  methods: {
+    getCityInfo() {
+      axios.get("/static/city.json").then(this.handleGetCityInfoSucc)
+    },
+    handleGetCityInfoSucc(res) {
+      res = res.data;
+      if (res.ret && res.data) {
+        const data = res.data;
+        this.cities = data.cities;
+        this.hotCities = data.hotCities;
+      }
+    },
+    handleLetterChange(letter) {
+      this.letter = letter;
+    },
+  },
+  mounted() {
+    this.getCityInfo();
+  },
+};
 </script>
 
-<style lang="stylus" scoped>
-
-</style>
+<style lang="stylus" scoped></style>
