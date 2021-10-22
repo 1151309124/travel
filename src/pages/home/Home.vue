@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-15 18:12:04
- * @LastEditTime: 2021-10-21 19:04:40
+ * @LastEditTime: 2021-10-22 20:24:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\Home.vue
@@ -9,7 +9,7 @@
 
 <template>
   <div>
-   <home-header :city="city"></home-header> 
+   <home-header></home-header> 
    <home-swiper :list="swiperList"></home-swiper>
    <home-icons :list="iconList"></home-icons>
    <home-recommend :list="recommendList"></home-recommend>
@@ -35,7 +35,7 @@ export default {
   },
   data () {
     return {
-      city: '',
+
       swiperList:[],
       iconList:[],
       recommendList:[],
@@ -52,7 +52,6 @@ export default {
       res =res.data
       if(res.ret && res.data){
         const data=res.data
-        this.city=data.city
         this.swiperList=data.swiperList
         this.iconList=data.iconList
         this.recommendList=data.recommendList
