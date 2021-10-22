@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-20 22:26:00
- * @LastEditTime: 2021-10-21 20:54:24
+ * @LastEditTime: 2021-10-22 23:28:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\city\components\List.vue
@@ -10,20 +10,23 @@
     <div class="list" ref="wrapper">
         <div>
             <div class="area">
-            <div class="title  border-topbottom">当前城市</div>
-            <div class="button-list">
-                <div class="button-wrapper">
-                    <div class="button">北京</div>
+                <div class="title  border-topbottom">当前城市</div>
+                <div class="button-list">
+                    <div class="button-wrapper">
+                        <div class="button">{{this.currentCity}}</div>
+                    </div>
                 </div>
             </div>
-        </div>
          <div class="area">
             <div class="title  border-topbottom">热门城市</div>
             <div class="button-list">
                 <div 
                 class="button-wrapper" 
                 v-for="item of hot"
-                :key="item.id">
+                :key="item.id"
+                @click="handleCityClick(item.name)"
+                
+                >
                     <div class="button">{{item.name}}</div>
                 </div>
             </div>
@@ -41,6 +44,7 @@
                 class="item border-bottom"
                 v-for="innerItem of item"
                 :key="innerItem.id"
+                @click="handleCityClick(item.name)"
                 >
                 {{innerItem.name}}
                 </div>
@@ -52,6 +56,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
     name:'CityList',
     props: {
@@ -59,8 +64,17 @@ export default {
         cities: Object,
         letter:String
     },
-    mounted () {
-        this.scroll =new Bscroll(this.$refs.wrapper)
+     computed: {
+        ...mapState({
+        currentCity: 'city'
+     })
+  },
+    methods:{
+        handleCityClick (city) {
+            this.changeCity(city)
+            this.$router.push('/')
+        },
+        ...mapMutations(['changeCity'])
     },
     watch: {
         letter () {
@@ -69,7 +83,10 @@ export default {
                 this.scroll.scrollToElement(element)
             }
         }
-    }
+    },
+    mounted () {
+        this.scroll =new Bscroll(this.$refs.wrapper)
+    },
 }
 </script>
 

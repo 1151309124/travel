@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-20 12:58:55
- * @LastEditTime: 2021-10-22 19:18:50
+ * @LastEditTime: 2021-10-22 23:32:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\city\components\Header.vue
@@ -34,6 +34,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
     name:'CitySearch',
     props:{
@@ -76,9 +77,10 @@ export default {
     },
     methods: {
         handleCityClick(city) {
-            this.$store.commit('changeCity',city)
+            this.changeCity(city)
             this.$router.push('/')
-        }
+        },
+         ...mapMutations(['changeCity'])
     },
     mounted (){
         this.scroll= new Bscroll(this.$refs.search)
