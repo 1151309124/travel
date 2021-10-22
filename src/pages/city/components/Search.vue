@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-20 12:58:55
- * @LastEditTime: 2021-10-21 23:30:03
+ * @LastEditTime: 2021-10-22 18:26:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\city\components\Header.vue
@@ -15,7 +15,9 @@
     <div class="search-content" ref="search" v-show="keyword">
         <ul>
             <li class="search-item border-bottom" 
-            v-for="item of  list" :key="item.id" 
+            v-for="item of list" 
+            :key="item.id" 
+            @click="handleCityClick(item.name)"
             >
                 {{item.name}}
             </li>
@@ -60,7 +62,7 @@ export default {
             }
             this.timer =setTimeout(() => {
                 const result =[]
-                for(let i in this.cities){
+                for (let i in this.cities){
                     this.cities[i].forEach((value) => {
                         if (value.spell.indexOf(this.keyword)>-1 || 
                         value.name.indexOf(this.keyword)>-1){
@@ -70,6 +72,12 @@ export default {
                 }
                 this.list=result
             },100)
+        }
+    },
+    methods: {
+        handleCityClick(city) {
+            this.$store.commit('changeCity',city)
+            this.$router.push('/')
         }
     },
     mounted (){
@@ -93,7 +101,7 @@ export default {
       text-align: center
       border-radius:.06rem
       color: #666
-     .search-content
+    .search-content
       z-index: 1
       overflow: hidden
       position: absolute

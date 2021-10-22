@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-20 13:14:53
- * @LastEditTime: 2021-10-21 19:03:11
+ * @LastEditTime: 2021-10-22 13:31:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\city\City.vue
@@ -9,8 +9,12 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
-    <city-list :cities="cities" :hot="hotCities" :letter="letter"></city-list>
+    <city-search :cities="cities"></city-search>
+    <city-list 
+    :cities="cities" 
+    :hot="hotCities" 
+    :letter="letter"
+    ></city-list>
     <city-alphabet
       :cities="cities"
       @change="handleLetterChange"
@@ -25,7 +29,7 @@ import CitySearch from "./components/Search";
 import CityList from "./components/List";
 import CityAlphabet from "./components/Alphabet";
 export default {
-  name: "City",
+  name: "City", 
   components: {
     CityHeader,
     CitySearch,
