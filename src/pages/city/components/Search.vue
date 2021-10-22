@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-20 12:58:55
- * @LastEditTime: 2021-10-22 18:26:04
+ * @LastEditTime: 2021-10-22 19:18:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\city\components\Header.vue
@@ -89,18 +89,18 @@ export default {
 <style lang="stylus" scoped>
     @import '~@/assets/styles/varibles.styl'
     .search
-     height: .72rem
-     padding: 0 .1rem
-     background: $bgColor
-     .search-input
-      box-sizing: border-box
-      width: 100%
-      height: .62rem
+      height: .72rem
       padding: 0 .1rem
-      line-height: .62rem
-      text-align: center
-      border-radius:.06rem
-      color: #666
+      background: $bgColor
+      .search-input
+       box-sizing: border-box
+       width: 100%
+       height: .62rem
+       padding: 0 .1rem
+       line-height: .62rem
+       text-align: center
+       border-radius:.06rem
+       color: #666
     .search-content
       z-index: 1
       overflow: hidden
@@ -111,9 +111,9 @@ export default {
       bottom: 0
       background: #eee
       .search-item
-       line-height: .62rem
-       padding-left: .2rem
-       background: #fff
-       color: #666
+        line-height: .62rem
+        padding-left: .2rem
+        background: #fff
+        color: #666
 
 </style>
