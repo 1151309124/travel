@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-05 23:20:38
- * @LastEditTime: 2021-10-22 23:56:50
+ * @LastEditTime: 2021-10-23 13:57:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\components\Header.vue
@@ -17,7 +17,7 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
-        {{this.doubleCity}}
+        {{this.City}}
         <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
      </router-link>
@@ -25,21 +25,21 @@
 </template>
 
 <script>
-import {  mapState ,mapGetters } from 'vuex'
+import {  mapState  } from 'vuex'
 export default {
   name: "HomeHeader",
   computed: {
     ...mapState(['city']),
-    ...mapGetters(['doubleCity'])
   }
 }
 //scoped只对这个组件产生影响
 </script>
 <style lang="stylus" scoped>
+@import '~@/assets/styles/varibles.styl'
 .header 
-  display:flex;
-  line-height:$headerHeight;
-  background:#bgColor;
+  display:flex
+  line-height:$headerHeight
+  background:#bgColor
   color:#fff
     
   .header-left 

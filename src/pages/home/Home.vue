@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-15 18:12:04
- * @LastEditTime: 2021-10-22 20:24:05
+ * @LastEditTime: 2021-10-23 14:18:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\Home.vue
@@ -24,6 +24,7 @@ import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
 import axios from 'axios'
+import { mapState} from 'vuex'
 export default {
   name: "home",
   components:{
@@ -35,17 +36,19 @@ export default {
   },
   data () {
     return {
-
+      lastCity: '',
       swiperList:[],
       iconList:[],
       recommendList:[],
       weekendList:[]
-
     }
+  },
+  computed: {
+    ...mapState(['city'])
   },
   methods: {
     getHomeInfo () {
-      axios.get('/static/index.json')
+      axios.get('/static/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
@@ -60,9 +63,15 @@ export default {
     }
   },
   mounted () {
+    this.lastCity=this.city
     this.getHomeInfo()
+  },
+  activated () {
+    if (this.lastCity !==this.city ) {
+        this.getHomeInfo()
+    }
   }
-};
+}
 </script>
 
 <style>
