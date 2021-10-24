@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-05 23:20:38
- * @LastEditTime: 2021-10-23 13:57:42
+ * @LastEditTime: 2021-10-24 17:51:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\components\Header.vue
@@ -17,7 +17,7 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
-        {{this.City}}
+        {{this.city}}
         <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
      </router-link>
@@ -39,7 +39,7 @@ export default {
 .header 
   display:flex
   line-height:$headerHeight
-  background:#bgColor
+  background:$bgColor
   color:#fff
     
   .header-left 
@@ -56,7 +56,7 @@ export default {
     line-height:.64rem
     margin-top:.12rem
     margin-left:.2rem
-    padding-left: .2rem
+    padding-left: 0.2rem
     background:#fff
     border-radius:.1rem
     color:#ccc

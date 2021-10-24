@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-11 23:12:12
- * @LastEditTime: 2021-10-17 16:48:15
+ * @LastEditTime: 2021-10-24 17:44:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\home\components\Swiper.vue
@@ -50,4 +50,5 @@ export default {
   background:#eee
   .swiper-img
    width:100%
+   height: 100%
 </style>
