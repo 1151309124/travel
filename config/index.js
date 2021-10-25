@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-17 16:20:46
- * @LastEditTime: 2021-10-21 18:55:51
+ * @LastEditTime: 2021-10-25 21:52:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\config\index.js
@@ -20,10 +20,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://localhost:8080',
-        pathRewrite:{
-          '^/api':'/static/mock'
-        }
+        target: 'http://localhost:80',
       }
     },
 

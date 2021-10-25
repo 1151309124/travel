@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-24 20:09:46
- * @LastEditTime: 2021-10-25 00:08:04
+ * @LastEditTime: 2021-10-25 19:43:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\travel\src\pages\detail\components\Header.vue
@@ -75,6 +75,7 @@ export default {
       } 
     
     .header-fixed {
+      z-index: 99
       position: fixed;
       top:0
       left: 0
@@ -86,7 +87,6 @@ export default {
       background: $bgColor;
       font-size: .32rem;
     }
-
       .header-fixed-back {
         position: absolute;
         top: 0;
@@ -95,6 +95,5 @@ export default {
         text-align: center;
         font-size: 0.4rem;
         color: #fff;
-        
         }
 </style>
